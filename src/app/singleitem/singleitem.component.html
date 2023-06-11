@@ -1,19 +1,14 @@
 <main>
     <section class="left">
         <div class="big-image">
-            <img src="https://e7.pngegg.com/pngimages/758/778/png-clipart-pocket-watch-chronograph-watch-watch-accessory-accessories.png" alt="">
+            <img [src]="selectedImage" alt="No image">
         </div>
         <div class="small-images">
-            <div class="small-image-wrap">
-                <img src="https://e7.pngegg.com/pngimages/758/778/png-clipart-pocket-watch-chronograph-watch-watch-accessory-accessories.png" alt="">
+            <div
+            [ngClass]="{'selected': selectedImage == image}"
+            class="small-image-wrap" *ngFor="let image of images" (click)="selectImage(image)">
+                <img [src]="image" alt="No image">
             </div>
-            <div class="small-image-wrap">
-                <img src="https://e7.pngegg.com/pngimages/758/778/png-clipart-pocket-watch-chronograph-watch-watch-accessory-accessories.png" alt="">
-            </div>
-            <div class="small-image-wrap">
-                <img src="https://e7.pngegg.com/pngimages/758/778/png-clipart-pocket-watch-chronograph-watch-watch-accessory-accessories.png" alt="">
-            </div>
-            
         </div>
     </section>
     <section class="right"></section>
