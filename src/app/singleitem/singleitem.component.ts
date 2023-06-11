@@ -12,7 +12,15 @@ export class SingleitemComponent {
     'https://upload.wikimedia.org/wikipedia/commons/c/cc/Arcadia_watch_c_1950.png'
   ]
   selectedImage: string = this.images[0];
+  hovered: string = ''
+
   selectImage(i:string){
     this.selectedImage = i
+  }
+  hoverOver(i:string){
+    this.hovered = i
+  }
+  hoverOut(){
+    this.hovered = '' 
   }
 }

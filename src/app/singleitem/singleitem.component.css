@@ -6,15 +6,17 @@ main{
 }
 .big-image{
     /* background-color: red; */
-    max-height: 50vh;
-    height: 50vh;
+    max-height: 40vh;
+    height: 40vh;
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 60px;
+    box-shadow: 0 2px 10px rgb(228, 228, 228);
+    border-radius: 4px;
 }
 /* small */
 .small-images{
-    padding-top: 15px;
+    padding-top: 25px;
     display: flex;
 }
 .small-image-wrap:nth-child(1),
@@ -24,21 +26,21 @@ main{
 
 .small-image-wrap{
     margin: 0 10px;
-    padding: 10px;
+    padding: 25px 15px;
     cursor: pointer;
-    height: 150px;
+    height: 130px;
     border: 2px solid orange;
-    border-radius: 4px;
+    border-radius: 3px;
     transition: transform 300ms;
     transition: 300ms;
-    user-select: none;
-    -webkit-user-select: none;
 }
 
 .small-image-wrap.selected{
     box-shadow: 0 0 10px rgb(212, 212, 212);
-    border-radius: 10px;
+    border-radius: 5px;
 }
 .small-image-wrap img{
     height: 100%;
+    user-select: none;
+    -webkit-user-select: none;
 }

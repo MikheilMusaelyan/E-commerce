@@ -1,15 +1,21 @@
 <main>
     <section class="left">
         <div class="big-image">
-            <img [src]="selectedImage" alt="No image">
+            <img [src]="hovered || selectedImage" alt="No image">
         </div>
         <div class="small-images">
             <div
-            [ngClass]="{'selected': selectedImage == image}"
-            class="small-image-wrap" *ngFor="let image of images" (click)="selectImage(image)">
+                [ngClass]="{'selected': selectedImage == image}"
+                class="small-image-wrap" *ngFor="let image of images" 
+                (click)="selectImage(image)"
+                (mouseover)="hoverOver(image)"
+                (mouseout)="hoverOut()"
+            >
                 <img [src]="image" alt="No image">
             </div>
         </div>
     </section>
-    <section class="right"></section>
+    <section class="right">
+        rijas
+    </section>
 </main>
