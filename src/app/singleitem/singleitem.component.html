@@ -1,7 +1,10 @@
 <main>
     <section class="left">
         <div class="big-image">
-            <img [src]="hovered || selectedImage" alt="No image">
+            <img 
+            (mousemove)="zoomIn($event)"
+            (mouseout)="zoomOut($event)"
+            [src]="hovered || selectedImage" alt="No image">
         </div>
         <div class="small-images">
             <div
@@ -16,6 +19,23 @@
         </div>
     </section>
     <section class="right">
-        rijas
+        <h1 class="title">Title of the product, more more mkre mroe</h1>
+        <div class="price-wrap">
+            <h1 class="price">$49.99</h1>
+            <h1 class="old-price">$69.99</h1>
+        </div>
+        <div class="ratings-wrap">
+            <h1 class="ratings">Ratings</h1>
+            <!-- <fa-icon [icon]="starIcon"></fa-icon>
+            <fa-icon [icon]="starIcon"></fa-icon>
+            <fa-icon [icon]="starIcon"></fa-icon>
+            <fa-icon [icon]="starIcon"></fa-icon>
+            <fa-icon [icon]="starIcon"></fa-icon> -->
+        </div>
+        <span class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem atque illo excepturi quia adipisci illum, quisquam autem laudantium, perspiciatis officia optio! Obcaecati, molestias explicabo dolorum a fugit minima perferendis fuga.</span>
+        <div class="button-wrap">
+            <button class="cart">Add to cart</button>
+            <button class="buy">Buy now</button>
+        </div>
     </section>
 </main>

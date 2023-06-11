@@ -7,16 +7,20 @@ import { HomeComponent } from './home/home.component';
 import { CarouselComponent } from './home/carousel/carousel.component';
 import { SingleitemComponent } from './singleitem/singleitem.component';
 
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CarouselComponent,
-    SingleitemComponent
+    SingleitemComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
