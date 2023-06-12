@@ -7,8 +7,8 @@ main{
 }
 .big-image{
     /* background-color: red; */
-    max-height: 40vh;
-    height: 40vh;
+    max-height: 300px;
+    height: 300px;
     display: flex;
     justify-content: center;
     padding: 20px 0 50px 0;
@@ -45,7 +45,7 @@ main{
 
 .small-image-wrap.selected{
     transform: translateY(-10px);
-    border: 2px solid rgb(255, 123, 0);
+    border: 2px solid var(--mainColor);
     border-radius: 7px;
 }
 .small-image-wrap img{
@@ -58,32 +58,38 @@ main{
 /* right */
 h1, h5{
     margin: 0;
+    user-select: none;
+    -webkit-user-select: none;
 }
 .title{
     padding-bottom: 25px;
     font-size: 35px;
-    /* background: linear-gradient(to top, black, rgb(77, 77, 77));
+    color: rgb(53, 53, 53);
+    /* background: linear-gradient(to top, black, rgb(109, 108, 108));
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent;  */
+    -webkit-text-fill-color: transparent; 
+    box-decoration-break: clone; */
+    /* -webkit-box-decoration-break: clone; */
 }
 .price-wrap{
-    padding-bottom: 7px;
+    padding-bottom: 10px;
 }
 
 .price{
     font-size: 32px;
-    color: rgb(255, 123, 0);
+    color: var(--mainColor);
 }
 .right{
     padding: 0px 0 0 25px;
 }
 .low-price{
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
     padding-left: 15px;
 }
 .old-price{
     position: relative;
+    color: rgb(53, 53, 53);
 }
 .discount-time{
     color: red;
@@ -102,10 +108,30 @@ h1, h5{
 }
 .ratings-wrap{
     padding-bottom: 25px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+}
+.star-wrap{
+    position: relative;
 }
 .ratings{
-    font-size: 20px;
+    font-size: 15.5px;
     font-weight: normal;
+    padding-left: 7px;
+}
+.starIcon, .lastStar{
+    color: var(--mainColor);
+    font-size: 18px;
+}
+.lastStar{
+    /* width: 50%; */
+    position: absolute;
+    background-color: white;
+    right: 0;
+    width: 10px;
+    overflow: hidden;
+    transform: scaleX(-1) translate(0px, .7px);
 }
 .description{
     font-size: 18px;
@@ -116,21 +142,25 @@ h1, h5{
     width: 70%;
 }
 .button-wrap{
-    padding-top: 40px;
+    padding-top: 50px;
 }
 .button-wrap button{
     padding: 14px 35px;
     border: none !important;
     outline: none !important;
     border-radius: 4px;
-    background-color: rgb(255, 123, 0);
+    background-color: var(--mainColor);
     color: white;
     font-weight: 700;
     font-size: 15px;
     cursor: pointer;
+    transition: 100ms;
 }
 .button-wrap button:first-child{
     margin-right: 7px;
+}
+.button-wrap button:hover{
+    background-color: var(--mainColor);
 }
 
 .single-items-wrap{

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { faStar as star} from '@fortawesome/free-solid-svg-icons';
+import { faStar as lastStar} from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-singleitem',
@@ -7,7 +8,9 @@ import { faStar } from '@fortawesome/free-regular-svg-icons';
   styleUrls: ['./singleitem.component.css']
 })
 export class SingleitemComponent {
-  starIcon = faStar
+  starIcon = star;
+  lastStar = lastStar;
+  // cart = facart
   images = [
     'https://upload.wikimedia.org/wikipedia/commons/8/85/Qtz_watch.png',
     'https://www.pngall.com/wp-content/uploads/2/Rolex-Watch-PNG-Free-Image.png',

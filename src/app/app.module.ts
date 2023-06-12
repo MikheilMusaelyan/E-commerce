@@ -7,8 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { CarouselComponent } from './home/carousel/carousel.component';
 import { SingleitemComponent } from './singleitem/singleitem.component';
 import { RelateditemsComponent } from './relateditems/relateditems.component';
-
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +17,13 @@ import { RelateditemsComponent } from './relateditems/relateditems.component';
     CarouselComponent,
     SingleitemComponent,
     RelateditemsComponent,
-
+    NavbarComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // FontAwesomeModule
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
