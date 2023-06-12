@@ -1,0 +1,12 @@
+<main>
+    <h1 class="similar-items">Similar Items</h1>
+    <div class="small-images">
+        <div
+            class="small-image-wrap" 
+            *ngFor="let image of images" 
+            (click)="goToItem(image)"
+        >
+            <img [src]="image" alt="No image">
+        </div>
+    </div>
+</main>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CarouselComponent } from './home/carousel/carousel.component';
 import { SingleitemComponent } from './singleitem/singleitem.component';
+import { RelateditemsComponent } from './relateditems/relateditems.component';
 
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -15,6 +16,7 @@ import { SingleitemComponent } from './singleitem/singleitem.component';
     HomeComponent,
     CarouselComponent,
     SingleitemComponent,
+    RelateditemsComponent,
 
   ],
   imports: [
