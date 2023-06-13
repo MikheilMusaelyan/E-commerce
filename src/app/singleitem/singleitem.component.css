@@ -98,7 +98,7 @@ h1, h5{
 .old-price::before{
     content: "";
     width: calc(100%);
-    height: 3px;
+    height: 2.5px;
     background-color:red;
     position: absolute;
     top: 10.5px;

@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CarouselComponent } from './home/carousel/carousel.component';
 import { SingleitemComponent } from './singleitem/singleitem.component';
-import { RelateditemsComponent } from './relateditems/relateditems.component';
+import { RelateditemsComponent } from './singleitem/relateditems/relateditems.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BannerComponent } from './banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     SingleitemComponent,
     RelateditemsComponent,
     NavbarComponent,
+    BannerComponent,
     
   ],
   imports: [
