@@ -1,7 +1,8 @@
-<main>
+<main class="twelve">
     <section class="left">
-        <div class="big-image">
-            <img 
+        <div class="big-image-wrap">
+            <img
+            class="big-image"
             (mousemove)="zoomIn($event)"
             (mouseout)="zoomOut($event)"
             [src]="hovered || selectedImage" alt="No image">
@@ -9,7 +10,8 @@
         <div class="small-images">
             <div
                 [ngClass]="{'selected': selectedImage == image}"
-                class="small-image-wrap" *ngFor="let image of images" 
+                class="small-image-wrap" 
+                *ngFor="let image of images" 
                 (click)="selectImage(image)"
                 (mouseover)="hoverOver(image)"
                 (mouseout)="hoverOut()"
@@ -18,15 +20,10 @@
             </div>
         </div>
     </section>
+    
     <section class="right">
+        <p class="trusted">Trusted By 10,000+ Happy Customers</p>
         <h1 class="title">Title of the product, more more mkre mroe</h1>
-        <div class="price-wrap">
-            <h1 class="price">$49.99</h1>
-            <div class="low-price">                
-                <h1 class="old-price">$69.99</h1>
-                <!-- <h5 class="discount-time">6 days left</h5> -->
-            </div>
-        </div>
         <div class="ratings-wrap">
             <div class="star-wrap">
                 <fa-icon [icon]="starIcon" class="starIcon"></fa-icon>
@@ -36,8 +33,22 @@
                 <fa-icon [icon]="starIcon" class="starIcon"></fa-icon>
                 <fa-icon [icon]="lastStar" class="lastStar"></fa-icon>
             </div>
-            <h1 class="ratings">(16 Ratings)</h1>
+            <h1 class="ratings">(16)</h1>
         </div>
+        <div class="price-wrap">
+            <div class="low-price">                
+                <h1 class="old-price">$69.99 USD</h1>
+            </div>
+            <h1 class="price">$49.99 USD</h1>
+        </div>
+        <div class="secured">
+            🔒Secured With 30 Days Money Back Guarantee
+        </div>
+        <div class="preferences">
+            <p class="preference-name"></p>
+            <button class="preference"></button>
+        </div>
+        
         <span class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem atque illo excepturi quia adipisci illum, quisquam autem laudantium, perspiciatis officia optio! Obcaecati, molestias explicabo dolorum a fugit minima perferendis fuga.</span>
         <div class="button-wrap">
             <button class="cart">Add to cart</button>

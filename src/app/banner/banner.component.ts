@@ -9,15 +9,19 @@ export class BannerComponent {
   @ViewChildren('banner') banner: any;
 
   ngAfterViewInit(): void {
-    let scrollSpeed = 0.5
+    
     window.addEventListener('scroll', () => {
-      // Calculate the new scroll position with slower scroll speed
-      const scrollPos = window.scrollY * scrollSpeed;
-  
-      // Apply the new scroll position as a translateY transform to the banner image
-      for(let i = 0; i < this.banner._results.length; i++){
-        this.banner._results[i].nativeElement.style.transform = `translateY(${scrollPos+i}px)`;
-      }
+      let scrollSpeed = 0.5
+      let scrollPos = window.scrollY * scrollSpeed;
+      this.banner._results[0].nativeElement.style.transform = `translateY(${scrollPos}px)`;
+
+      scrollSpeed = 0.4
+      scrollPos = window.scrollY * scrollSpeed;
+      this.banner._results[1].nativeElement.style.transform = `translateY(${scrollPos}px)`;
+
+      scrollSpeed =0.2
+      scrollPos = window.scrollY * scrollSpeed;
+      this.banner._results[2].nativeElement.style.transform = `translateY(${scrollPos}px)`;
     });
   }
 }
