@@ -5,11 +5,17 @@ main{
 .left, .right{
     width: 50%;
 }
+.left{
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .big-image-wrap{
     /* background-color: red; */
     display: flex;
-    height: 65vh;
-    max-height: 65vh;
+    height: 70vh;
+    max-height: 70vh;
     justify-content: center;
     box-shadow: 0px 0px 10px rgb(233, 233, 233);
     border-radius: 5px;
@@ -21,8 +27,8 @@ main{
 
 /* small */
 .small-images{
-    height: 20vh;
-    padding: 25px 10px 0 10px;
+    height: calc(25vh - 30px);
+    padding: 10px;
     display: flex;
     justify-content: center;
     overflow: auto;
@@ -62,7 +68,7 @@ h1, h5{
     font-weight: 100;
 }
 .title{
-    margin: 18px 0;
+    margin: 18px 0 12px 0;
     font-size: 52px;
     color: rgb(53, 53, 53);
     /* background: linear-gradient(to top, black, rgb(109, 108, 108));
@@ -97,9 +103,27 @@ h1, h5{
 }
 .secured{
     color: #585858;
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
+.preferences{
+    padding: 10px 0;
+}
+.preference-name{
+    margin: 0 0 12px 0;
+    color: #585858;
+}
+.preferences-wrap{
+    display: flex;
+}
+.preference{
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: var(--mainColor);
+    color: white;
+    border: none;
+    margin-right: 10px;
+}
 
 /* .old-price::before{
     content: "";
@@ -115,7 +139,7 @@ h1, h5{
 
 
 .ratings-wrap{
-    margin: 20px 0;
+    margin: 0 0 20px 0;
     width: max-content;
     display: flex;
     align-items: center;
@@ -142,41 +166,26 @@ h1, h5{
     overflow: hidden;
     transform: scaleX(-1) translate(0px, .7px);
 }
-.description{
-    font-size: 18px;
-    color: #535353;
-    line-height: 25px;
-    letter-spacing: .2px;
-    display: inline-block;
-    width: 70%;
-}
-.button-wrap{
-    padding-top: 50px;
-}
-.button-wrap button{
-    padding: 14px 35px;
-    border: none !important;
-    outline: none !important;
-    border-radius: 4px;
-    background-color: var(--mainColor);
-    color: white;
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 100ms;
-}
-.button-wrap button:first-child{
-    margin-right: 7px;
-}
-.button-wrap button:hover{
-    background-color: var(--mainColor);
-}
+
+
 
 .single-items-wrap{
     padding-top: 50px;
 }
 
-/* ::-webkit-scrollbar {
+.offer-button{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    color: white;
+    background: rgb(92, 225, 230);
+}
+
+
+
+
+
+::-webkit-scrollbar {
   height: 7px;
   border-radius: 5px;
 }
@@ -192,4 +201,4 @@ h1, h5{
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(234, 115, 4);
-} */
+}
