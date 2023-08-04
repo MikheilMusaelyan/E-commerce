@@ -23,7 +23,7 @@
     
     <section class="right">
         <p class="trusted">Trusted By 10,000+ Happy Customers</p>
-        <h1 class="title">Title of the product, more more mkre mroe</h1>
+        <h1 class="title">IronWrist Bracelet (Pack of 5)</h1>
         <div class="ratings-wrap">
             <div class="star-wrap">
                 <fa-icon [icon]="starIcon" class="starIcon"></fa-icon>
@@ -41,6 +41,7 @@
             </div>
             <h1 class="price">$49.99 USD</h1>
         </div>
+        <p class="free-shipping-text">free worldwide shipping :)</p>
         <div class="secured">
             🔒Secured With 30 Days Money Back Guarantee
         </div>
@@ -53,13 +54,33 @@
             </div>
         </div>
         <div class="offers">
-            <div class="offer-button">VIP Offer</div>
+            <div class="offer-button-wrap">
+                <div class="offer-button vipoffer">VIP Offer</div>
+                <div class="offer-button">VIP Offer</div>
+            </div>
             <span class="offer-text">
                 VIP Offer
                 <br>
                 Subscribe to our VIP program and you will receive 50% off all future purchases and get a coupon for Veloces VIP membership product each month. You will also have exclusive access to new products in the future. You will be rebilled nineteen ninety nine per month to have access to these benefits. You can pause or cancel at anytime.
             </span>
         </div>
+
+        <div class="quantity-wrap-main">
+            <h6 class="quantity-text">Quantity</h6>
+            <div class="quantity-wrap">
+                <div class="decrease amountC">
+                    <span class="decrease-amount-span">-</span>
+                </div>
+                <span class="quantity">{{quantity}}</span>
+                <div class="increase amountC">
+                    <span class="increase-amount-span">+</span>
+                </div>
+            </div>
+        </div>
+        <button class="add-to-cart">
+            ADD TO CART
+            <fa-icon class="arrow-right-icon" [icon]="arrowRight"></fa-icon>
+        </button>
     </section>
 </main>
 
