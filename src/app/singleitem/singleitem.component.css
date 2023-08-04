@@ -242,11 +242,16 @@ h1, h5{
     border: 1px solid lightgrey;
     border-radius: 10px;
     width: max-content;
+    overflow: hidden;
 }
 .amountC{
     cursor: pointer;
     font-size: 20px;
     user-select: none;
+}
+.amountC:hover{
+    background: rgb(234, 234, 234);
+    /* border-radius: 8px; */
 }
 .quantity, .amountC > span{
     display: flex;

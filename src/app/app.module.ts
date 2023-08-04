@@ -10,6 +10,7 @@ import { RelateditemsComponent } from './singleitem/relateditems/relateditems.co
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BannerComponent } from './banner/banner.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { BannerComponent } from './banner/banner.component';
     RelateditemsComponent,
     NavbarComponent,
     BannerComponent,
+    ReviewsComponent,
     
   ],
   imports: [
