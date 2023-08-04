@@ -8,13 +8,13 @@ main{
 }
 .left{
     width: 55%;
-    height: 95vh;
-    max-height: 720px;
+    /* height: 95vh; */
+    max-height: 800px;
     position: sticky;
-    top: 30px;
+    top: 2.5vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 .big-image-wrap{
     display: flex;
@@ -23,6 +23,9 @@ main{
     border-radius: 5px;
     overflow: hidden;
     user-select: none;
+}
+.big-image{
+    width: 100%;
 }
 .zoomed{
     transform: scale(2);
@@ -121,7 +124,7 @@ h1, h5{
 .preference-name{
     margin: 0 0 12px 0;
     font-size: 14px;
-    color: #585858;
+    color: var(--minitext-color);
 }
 .preferences-wrap{
     display: flex;
@@ -132,7 +135,7 @@ h1, h5{
     background: var(--mainColor);
     color: white;
     border: none;
-    margin-right: 10px;
+    margin: 0 10px 5px 0;
     cursor: pointer;
 }
 .preference:hover{
@@ -202,7 +205,7 @@ h1, h5{
     height: 60px;
     display: flex;
     align-items: center;
-    justify-content: center ;
+    justify-content: center;
     border: 1px solid #B4B8C7;
     cursor: pointer;
 }
@@ -225,11 +228,12 @@ h1, h5{
     line-height: 23px;
     font-family: initial;
     display: block;
+    color: rgb(87, 87, 87);
 }
 /* quantity */
 .quantity-text{
     margin: 0 0 10px 0;
-    color: #585858;
+    color: var(--minitext-color);
     font-size: 14px;
     font-weight: 100;
 }
@@ -242,6 +246,7 @@ h1, h5{
 .amountC{
     cursor: pointer;
     font-size: 20px;
+    user-select: none;
 }
 .quantity, .amountC > span{
     display: flex;
@@ -267,6 +272,13 @@ h1, h5{
     background: rgb(67, 215, 221);
     box-shadow: 0 0 10px rgb(245, 245, 245);
 }
+.paragraph{
+    margin-top: 20px;
+    font-size: 15px;
+    color: var(--minitext-color);
+    letter-spacing: .7px;
+    line-height: 27px;
+}
 
 
 ::-webkit-scrollbar {
@@ -285,4 +297,14 @@ h1, h5{
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(61, 61, 61);
+}
+
+@media screen and (max-width: 1000px){
+    .offer-button-wrap{
+        flex-direction: column;
+    }
+    .offer-button{
+        width: 100%;
+        margin-bottom: 15px;
+    }
 }

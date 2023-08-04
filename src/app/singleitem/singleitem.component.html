@@ -59,20 +59,18 @@
                 <div class="offer-button">VIP Offer</div>
             </div>
             <span class="offer-text">
-                VIP Offer
-                <br>
-                Subscribe to our VIP program and you will receive 50% off all future purchases and get a coupon for Veloces VIP membership product each month. You will also have exclusive access to new products in the future. You will be rebilled nineteen ninety nine per month to have access to these benefits. You can pause or cancel at anytime.
+                Purchase this product for the lowest price and the highest quality on the market! You will have exclusive access to new products in the future, subscribe to our VIP program and you will receive 50% off all future purchases. You will have access to these benefits and you will be rebilled nineteen ninety nine per month, you can pause or cancel at anytime. We focus on quality!
             </span>
         </div>
 
         <div class="quantity-wrap-main">
             <h6 class="quantity-text">Quantity</h6>
             <div class="quantity-wrap">
-                <div class="decrease amountC">
+                <div class="decrease amountC" (click)="increase(false)">
                     <span class="decrease-amount-span">-</span>
                 </div>
                 <span class="quantity">{{quantity}}</span>
-                <div class="increase amountC">
+                <div class="increase amountC" (click)="increase(true)">
                     <span class="increase-amount-span">+</span>
                 </div>
             </div>
@@ -81,6 +79,15 @@
             ADD TO CART
             <fa-icon class="arrow-right-icon" [icon]="arrowRight"></fa-icon>
         </button>
+        <div class="paragraph-wrap">
+            <p class="paragraph">Introducing the mesmerizing Obsidian Ball and Dumbbell Bracelet, a true masterpiece that will capture your imagination and ignite your desire for a statement accessory like no other. Prepare to be enchanted by its irresistible charm and undeniable allure.</p>
+            <p class="paragraph">Picture yourself adorned with this captivating bracelet, as the lustrous obsidian balls delicately encircle your wrist, exuding an air of mystery and sophistication. The deep black hue of the volcanic glass, with its captivating sheen, creates an aura of intrigue and allure, drawing attention from all who catch a glimpse.</p>
+            <p class="paragraph">But that's not all—nestled amidst the obsidian spheres, a miniature dumbbell charm adds a touch of unexpected playfulness to the design. Symbolizing strength, determination, and an active lifestyle, it serves as a constant reminder of your resilience and dedication to your well-being.</p>
+            <p class="paragraph">Crafted with meticulous precision, this bracelet is the epitome of elegance and durability. Its flexible black silicone band ensures a comfortable and personalized fit, allowing you to wear it effortlessly throughout the day. The obsidian balls and dumbbell charm are expertly secured, promising longevity and ensuring they remain a captivating focal point for years to come.</p>
+            <p class="paragraph">Imagine the possibilities. Whether you're dressing up for a special occasion or adding a touch of sophistication to your everyday attire, this bracelet effortlessly elevates your style to new heights. Its versatile nature allows it to seamlessly transition from the gym to a night out, making it the perfect companion for the modern, active individual.</p>
+            <p class="paragraph">Not only does the Obsidian Ball and Dumbbell Bracelet embody the essence of strength and resilience, but it also becomes an extension of your unique personality. It sets you apart, signaling your passion for fitness, your appreciation for refined aesthetics, and your unyielding spirit.</p>
+            <p class="paragraph">Don't miss your chance to own this extraordinary accessory. Embrace its alluring beauty and let it empower you, inspiring confidence and admiration wherever you go. Unleash your inner strength and seize the opportunity to make a bold statement with the Obsidian Ball and Dumbbell Bracelet—an investment in style, refinement, and the unwavering pursuit of greatness.</p>
+        </div>
     </section>
 </main>
 

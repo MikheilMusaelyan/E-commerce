@@ -46,4 +46,11 @@ export class SingleitemComponent {
     const img = event.target;
     img.classList.remove('zoomed')
   }
+  increase(bool:boolean){
+    if(bool){
+      this.quantity++
+      return
+    }
+    this.quantity = Math.max(this.quantity - 1, 1)
+  }
 }
