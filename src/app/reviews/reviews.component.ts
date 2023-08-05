@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faDiagramSuccessor, faFlag, faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-reviews',
@@ -7,5 +7,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./reviews.component.css']
 })
 export class ReviewsComponent {
-  star = faStar
+  star = faStar;
+  tick = faCheck;
+  flag = faFlag
 }
