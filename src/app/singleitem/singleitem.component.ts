@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { faArrowRight, faStar as star} from '@fortawesome/free-solid-svg-icons';
-import { faStar as lastStar} from '@fortawesome/free-regular-svg-icons';
+import { faArrowDown, faArrowRight, faTruckFront, faStar as star} from '@fortawesome/free-solid-svg-icons';
+import { faStar as lastStar, faArrowAltCircleDown} from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-singleitem',
@@ -11,6 +11,10 @@ export class SingleitemComponent {
   starIcon = star;
   lastStar = lastStar;
   arrowRight = faArrowRight;
+  truck = faTruckFront;
+  one: boolean = false;
+  two: boolean = false
+
   quantity: number = 1;
   // cart = facart
   images = [
@@ -52,5 +56,13 @@ export class SingleitemComponent {
       return
     }
     this.quantity = Math.max(this.quantity - 1, 1)
+  }
+
+  toggle(st:string){
+    if(st == 'one'){
+      this.one = !this.one
+      return
+    }
+    this.two = !this.two
   }
 }

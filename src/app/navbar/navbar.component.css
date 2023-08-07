@@ -1,8 +1,37 @@
-nav{
-    height: 60px;
-    background-color: aliceblue;
+nav {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
 }
-ul{
+
+.navbar {
+    width: 100%;
+    list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+li {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+li a:hover {
+    color: #ffcc00;
+}
+
+.logo{
+    max-width: 50px;
+}
+.logoimg{
+    max-width: 50px;
 }

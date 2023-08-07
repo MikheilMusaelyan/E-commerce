@@ -33,7 +33,6 @@ main{
 
 /* small */
 .small-images{
-    max-height: 150px;
     padding: 30px 10px 10px 10px;
     display: flex;
     /* justify-content: center; */
@@ -41,6 +40,7 @@ main{
 }
 
 .small-image-wrap{
+    height: 130px;
     margin: 0 5px 5px 5px;
     padding: 10px;
     cursor: pointer;
@@ -286,6 +286,49 @@ h1, h5{
 }
 
 
+.add-info{
+    border-top: 1px solid rgb(231, 231, 231);
+}
+.add-info-box{
+    border-bottom: 1px solid rgb(231, 231, 231);
+}
+.add-info-box-top{
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.add-info-box-bottom{
+    margin: 0 10px 15px 10px;
+    color: #000000BF;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.add-info-leftbox{
+    display: flex;
+    align-items: center;
+}
+.add-info-text{
+    font-size: 19.5px;
+    margin: 0;
+    font-weight: 400;
+    padding-left: 14px;
+}
+.add-info-arrow{
+    height: 100%;
+    width: 40px;
+    font-size: 20px;
+}
+
+.turned{
+    transform: rotate(180deg);
+}
+
 ::-webkit-scrollbar {
   height: 7px;
   border-radius: 5px;
@@ -304,6 +347,28 @@ h1, h5{
   background: rgb(61, 61, 61);
 }
 
+@media screen and (max-width: 800px){
+    main{
+        flex-direction: column;
+        align-items: center;
+    }
+    .left{
+        position: static;
+    }
+    .right{
+        padding: 100px 0 0 0;
+    }
+    .left, .right{
+        width: 100%;
+    }
+    .big-image-wrap{
+        box-shadow: 0 3px 10px rgb(233, 233, 233);
+    }
+    .title{
+        font-size: 39px;
+    }
+}
+
 @media screen and (max-width: 1000px){
     .offer-button-wrap{
         flex-direction: column;
@@ -313,3 +378,4 @@ h1, h5{
         margin-bottom: 15px;
     }
 }
+
