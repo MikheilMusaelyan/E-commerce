@@ -1,7 +1,7 @@
 nav {
-    background-color: #333;
     padding: 10px;
     display: flex;
+    box-shadow: 0 4px 10px rgb(243, 243, 243);
 }
 
 .navbar {
@@ -10,28 +10,46 @@ nav {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content:  flex-end;
 }
 
 li {
+    cursor: pointer;
     padding: 0 20px;
     display: flex;
     align-items: center;
+    border-radius: 4px;
+}
+
+li:hover{
+    background: rgb(240, 240, 240);
+}
+li:hover a {
+    color:  var(--mainColor);
 }
 
 a {
     text-decoration: none;
-    color: #fff;
     font-size: 16px;
+    color: rgb(92, 225, 230);
 }
 
-li a:hover {
-    color: #ffcc00;
-}
+
 
 .logo{
     max-width: 50px;
 }
 .logoimg{
     max-width: 50px;
+}
+
+.free-shipping{
+    padding: 10px;
+    background: rgb(92, 225, 230);
+    color: white;
+    display: flex;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 15px;
+    justify-content: center;
 }

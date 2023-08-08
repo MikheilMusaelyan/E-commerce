@@ -356,7 +356,7 @@ h1, h5{
         position: static;
     }
     .right{
-        padding: 100px 0 0 0;
+        padding: 60px 0 0 0;
     }
     .left, .right{
         width: 100%;
@@ -366,6 +366,9 @@ h1, h5{
     }
     .title{
         font-size: 39px;
+    }
+    .small-images{
+        padding-top: 40px;
     }
 }
 
