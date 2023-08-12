@@ -1,18 +1,17 @@
+<main> 
 
-<h4 *ngIf="customerID" class="center">{{customerID}}</h4>
-<h2 class="center">Start Subsciption</h2>
-
-<div class="center"> 
-
-  <div class="formWrap">  
-    <form 
+  <div class="left">
+    <div class="left-wrap">
+      <h2 class="header">Shipping Information</h2>
+      <div class="formWrap">  
+        <form 
     [@formOne]="oneForm"
     [formGroup]="shippingForm"
     class="payment-form"
     *ngIf="step == 'shipping'"
     >
       <div class="wrap address">
-        <label class="form-label" style="margin-bottom: 0;">Email</label>
+        <label class="form-label">Email</label>
         <input
           id="email" 
           name="email" 
@@ -29,7 +28,7 @@
       </div>
   
       <div class="wrap address">
-        <label class="form-label" style="margin-bottom: 2px;">Addres</label>
+        <label class="form-label" >Address</label>
         <input
           id="city" 
           name="city" 
@@ -45,11 +44,60 @@
         </div>
       </div>
     
+      
+    
+      <div class="wrap">
+        <label class="form-label" >Apt, Suite, etc. (optional)</label>
+        <input
+          type="text"
+          class="stripe-card-input"
+          placeholder="Ex: 7a"
+          formControlName="apt"
+        />
+      </div>
+  
+      <div class="wrap twowrap">
+      
+        <div class="expiry-cvc-wrap">
+            <label class="form-label" >City</label>
+            <input
+              id="city"
+              name="city"
+              autocomplete="address-level2"
+              type="text"
+              class="stripe-card-input"
+              placeholder="Ex: Brooklyn"
+              formControlName="city"
+            />
+            <div class="error" *ngIf="shippingForm.controls['city'].invalid && 
+              (shippingForm.controls['city'].dirty || shippingForm.controls['city'].touched)">
+                City is invalid
+            </div>
+        </div>
+      
+        <div class="expiry-cvc-wrap">
+            <label class="form-label">Zip</label>
+            <input
+              id="zip" 
+              name="zip"
+              type="text"
+              autocomplete="postal-code"
+              class="stripe-card-input"
+              formControlName="zipCode"
+              placeholder="12345"
+            />
+            <div class="error" *ngIf="shippingForm.controls['zipCode'].invalid && 
+              (shippingForm.controls['zipCode'].dirty || shippingForm.controls['zipCode'].touched)">
+                Zip is invalid
+            </div>
+        </div>
+      
+      </div>
       <div class="wrap twowrap address">
         <div class="expiry-cvc-wrap">
-            <label class="form-label" style="margin-bottom: 0;">Country</label>
+            <label class="form-label">Country</label>
             <select formControlName="country" name="country" class="form-control" id="country">
-            <option value="" label="Select a country ... " selected="selected">Select a country ... </option>
+            <option value="" label="Select a country ..." selected>Select a country ... </option>
             <optgroup id="country-optgroup-Africa" label="Africa">
                 <option value="DZ" label="Algeria">Algeria</option>
                 <option value="AO" label="Angola">Angola</option>
@@ -320,7 +368,7 @@
         </div>
       
         <div class="expiry-cvc-wrap">
-            <label class="form-label" style="margin-bottom: 0;">State</label>
+            <label class="form-label">State</label>
             <select formControlName="state" name="state" id="state">
                 <option value="" selected="selected">Select a State</option>
                 <option value="AL">Alabama</option>
@@ -381,62 +429,13 @@
             </div>
         </div>
       </div>
-    
-      <div class="wrap">
-        <label class="form-label" style="margin-bottom: 2px;">Apt, Suite, etc. (optional)</label>
-        <input
-          type="text"
-          class="stripe-card-input"
-          placeholder="ex: 7a"
-          formControlName="apt"
-        />
-      </div>
-  
-      <div class="wrap twowrap">
-      
-        <div class="expiry-cvc-wrap">
-            <label class="form-label" style="margin-bottom: 0;">City</label>
-            <input
-              id="city"
-              name="city"
-              autocomplete="address-level2"
-              type="text"
-              class="stripe-card-input"
-              placeholder="ex: Brooklyn"
-              formControlName="city"
-            />
-            <div class="error" *ngIf="shippingForm.controls['city'].invalid && 
-              (shippingForm.controls['city'].dirty || shippingForm.controls['city'].touched)">
-                City is invalid
-            </div>
-        </div>
-      
-        <div class="expiry-cvc-wrap">
-            <label class="form-label" style="margin-bottom: 2px;">Zip</label>
-            <input
-              id="zip" 
-              name="zip"
-              type="text"
-              autocomplete="postal-code"
-              class="stripe-card-input"
-              formControlName="zipCode"
-              placeholder="12345"
-            />
-            <div class="error" *ngIf="shippingForm.controls['zipCode'].invalid && 
-              (shippingForm.controls['zipCode'].dirty || shippingForm.controls['zipCode'].touched)">
-                Zip is invalid
-            </div>
-        </div>
-      
-      </div>
-
       <button type="button" class="pay-button" (click)="stepOne()">
         Next
       </button>
 
-    </form>
+        </form>
 
-    <form
+        <form
       [@formTwo]="twoForm"
       class="payment-form"
       ngxStripeCardGroup
@@ -477,7 +476,73 @@
       <button type="button" class="pay-button" (click)="pay()">
         Pay
       </button>
-    </form> 
+        </form> 
+      </div>
+    </div>
   </div>
 
-</div>
+  <div class="right">
+    <div class="item">
+
+      <div class="item-img">
+        <div class="item-amount">1</div>
+        <img src="https://tse2.mm.bing.net/th?id=OIP.WFkDKUg0PaILZvP2XVSIDAHaEK&pid=Api&P=0&h=180">
+      </div>
+
+      <div class="text-wrap">
+        <div class="item-text">
+          <span class="item-text-span item-name">SMART-TRACK AIRTAG WALLET</span>
+          <span class="item-text-span item-custom custom-color">Color: Brown</span>
+          
+        </div>
+  
+        <div class="item-price">
+          $43.68
+        </div>
+      </div>
+
+    </div>
+    <div class="item">
+
+      <div class="item-img">
+        <div class="item-amount">1</div>
+        <img src="https://tse2.mm.bing.net/th?id=OIP.WFkDKUg0PaILZvP2XVSIDAHaEK&pid=Api&P=0&h=180">
+      </div>
+
+      <div class="text-wrap">
+        <div class="item-text">
+          <span class="item-text-span item-name">SMART-TRACK AIRTAG WALLET</span>
+          <span class="item-text-span item-custom custom-color">Color: Brown</span>
+          <span class="item-text-span item-custom custom-size">Color: Brown</span>
+          <span class="item-text-span item-custom custom-size">Color: Brown</span>
+        </div>
+  
+        <div class="item-price">
+          $43.68
+        </div>
+      </div>
+
+    </div>
+    <div class="item">
+
+      <div class="item-img">
+        <div class="item-amount">1</div>
+        <img src="https://tse2.mm.bing.net/th?id=OIP.WFkDKUg0PaILZvP2XVSIDAHaEK&pid=Api&P=0&h=180">
+      </div>
+
+      <div class="text-wrap">
+        <div class="item-text">
+          <span class="item-text-span item-name">SMART-TRACK AIRTAG WALLET</span>
+          <span class="item-text-span item-custom custom-color">Color: Brown</span>
+          <span class="item-text-span item-custom custom-size">Color: Brown</span>
+        </div>
+  
+        <div class="item-price">
+          $43.68
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>

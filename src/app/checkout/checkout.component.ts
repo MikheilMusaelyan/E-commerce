@@ -15,13 +15,13 @@ import { HttpClient } from '@angular/common/http';
       state('void', style({
         'opacity': '0'
       })),
-      transition('* => *', animate('0.3s ease-in-out'))
+      transition('* => *', animate('0.4s ease-in-out'))
     ]),
     trigger('formTwo', [
       state('void', style({
         'opacity': '0'
       })),
-      transition('* => *', animate('0.3s ease-in-out'))
+      transition('* => *', animate('0.4s ease-in-out'))
     ])
   ]
 })
@@ -81,16 +81,20 @@ export class CheckoutComponent {
     if(this.shippingForm.invalid){
       return
     }
-    this.step = 'billin'
-    setTimeout(() => {
-      this.step = 'billing'
-    }, 300);
+
+    // create customer
     this.service.createCustomer({ email: this.shippingForm.controls['email'].value})
     .subscribe((res: any) => {
       this.customerID = res.customer.id;
     }, err => {
       this.customerID = Math.random()
     })
+
+    // open up the card card
+    this.step = 'billin'
+    setTimeout(() => {
+      this.step = 'billing'
+    }, 370);
   }
 
   pay(): void {
@@ -105,12 +109,16 @@ export class CheckoutComponent {
         })
         .subscribe((result) => {
           if (result.paymentMethod) {
+
             this.service.StartSubscription({
               paymentMethodId: result.paymentMethod,
               customerID: this.customerID,
             }).subscribe((res) => {
               console.log(res);
+            }, err => {
+              // no subscription
             });
+
           } else if (result.error) {
             console.log(result.error.message);
             // display error
