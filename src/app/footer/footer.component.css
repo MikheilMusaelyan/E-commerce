@@ -30,3 +30,22 @@ li{
     width: calc(25% - 40px * 3 / 4);
     margin-bottom: 45px;
 }
+
+@media screen and (max-width: 850px){
+    .li-wrap{
+        min-width: initial;
+        width: 100%;
+    }
+    ul{
+        padding: 20px;
+    }
+    .li-main{
+        padding: 0;
+    }
+    .li-wrap:last-child{
+        margin-bottom: 25px;
+    }
+    footer{
+        margin: 0;
+    }
+}

@@ -11,13 +11,13 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css'],
   animations: [
-    trigger('formOne', [
+    trigger('1', [
       state('void', style({
         'opacity': '0'
       })),
       transition('* => *', animate('0.4s ease-in-out'))
     ]),
-    trigger('formTwo', [
+    trigger('2', [
       state('void', style({
         'opacity': '0'
       })),
@@ -39,8 +39,8 @@ export class CheckoutComponent {
   step: string = 'shipping';
 
   // forms
-  oneForm: string;
-  twoForm: string;
+  form1: string;
+  form2: string;
 
   // stripe element
   @ViewChild(StripeCardNumberComponent) card: StripeCardNumberComponent;

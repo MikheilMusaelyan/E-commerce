@@ -5,7 +5,7 @@
       <h2 class="header">Shipping Information</h2>
       <div class="formWrap">  
         <form 
-    [@formOne]="oneForm"
+    [@2]="form2"
     [formGroup]="shippingForm"
     class="payment-form"
     *ngIf="step == 'shipping'"
@@ -436,7 +436,7 @@
         </form>
 
         <form
-      [@formTwo]="twoForm"
+      [@2]="form2"
       class="payment-form"
       ngxStripeCardGroup
       [formGroup]="stripeTest"
