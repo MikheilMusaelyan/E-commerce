@@ -1,0 +1,141 @@
+  input, select, .form-label, img, button {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .StripeElement {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+    }
+    .StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+    }
+    .StripeElement--invalid {
+    border-color: #fa755a;
+    }
+    .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+    }
+    .stripe{
+    width: 400px;
+    }
+    .div{
+    width: 400px;
+    }
+    .center{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+
+
+    .payment-form {
+      background: white;
+      width: 370px;
+      max-width: 370px;
+      min-width: 320px;
+      height: max-content;
+      padding: 15px;
+      border-radius: 3px;
+      box-shadow: 0 0px 3px 0 rgb(0, 0, 0, .14), 0 1px 2px -1px rgb(0, 0, 0, .1)
+    }
+
+    .formWrap{
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding: 10px;
+    }
+      
+      .form-label {
+        display: block;
+        font-size: 13px;
+        color: #1A1A1AB2;
+        margin: 0 0 5px 0;
+        font-weight: 500;
+      }
+      .error{
+        font-size: 11px;
+        color: red;
+        padding-top: 4px;
+      }
+      
+      .wrap{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 15px;
+        position: relative;
+      }
+      input{
+        width: 100%;
+      }
+      select{
+        width: 100%;
+        margin: 5px 0 0 0;
+        padding: 4px;
+        border-radius: 4px;
+        border: 1px solid rgb(228, 228, 228);
+        outline: none !important;
+        color: rgb(164, 164, 164);
+      }
+      .cardnumwrap{
+        display: flex;
+        align-items: center;
+      }
+      .visa-img{
+        height: 25px;
+        right: 0;
+        top: 18.6px;
+        width: min-content;
+      }
+      .wrap:nth-child(1){
+        padding: 0;
+      }
+      .twowrap{
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .expiry-cvc-wrap{
+        width: calc(50% - 5px);
+      }
+
+      .stripe-card {
+        width: 100%;
+        border-radius: 3px;
+      }
+      .stripe-card-input{
+        border: none !important;
+        outline: none !important;
+        font-size: 13px;
+        color: #31325F;
+        padding: 0;
+      }
+      ::placeholder {
+        color: #d4dbe4; 
+        font-size: 15.5px;
+      }
+      
+      .pay-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 25px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      
+      .pay-button:hover {
+        background-color: #0056b3;
+      }
+      

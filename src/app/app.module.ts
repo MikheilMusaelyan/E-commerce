@@ -12,6 +12,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BannerComponent } from './banner/banner.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { FooterComponent } from './footer/footer.component';
+import { NgxStripeModule } from 'ngx-stripe';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -24,12 +30,17 @@ import { FooterComponent } from './footer/footer.component';
     BannerComponent,
     ReviewsComponent,
     FooterComponent,
-    
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxStripeModule.forRoot('pk_live_51Ncg8GKpdNph4sQR7z0fQbY0AngQSShhlDGCFDX7YOJijYj5aPxs9YB1yhcpDdHnImRBI7ubQy5lZgXu3vnnbrG100GUlJEh3c'), // Test/Live key
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
