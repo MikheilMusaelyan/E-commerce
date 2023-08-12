@@ -4,11 +4,26 @@ import { StripeCardElementOptions, StripeElementsOptions } from '@stripe/stripe-
 import { MainService } from '../main.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css'],
+  animations: [
+    trigger('formOne', [
+      state('void', style({
+        'opacity': '0'
+      })),
+      transition('* => *', animate('0.3s ease-in-out'))
+    ]),
+    trigger('formTwo', [
+      state('void', style({
+        'opacity': '0'
+      })),
+      transition('* => *', animate('0.3s ease-in-out'))
+    ])
+  ]
 })
 export class CheckoutComponent {
   shippingForm: FormGroup = new FormGroup({
@@ -22,6 +37,10 @@ export class CheckoutComponent {
   })
   customerID: any;
   step: string = 'shipping';
+
+  // forms
+  oneForm: string;
+  twoForm: string;
 
   // stripe element
   @ViewChild(StripeCardNumberComponent) card: StripeCardNumberComponent;
@@ -48,43 +67,57 @@ export class CheckoutComponent {
   constructor(
     private stripeService: StripeService,
     private service: MainService,
+    private http: HttpClient,
+    private fb: FormBuilder
   ) {
-  }
-
-  onClickSubmit(data: any) {
-    
+    this.stripeTest = this.fb.group({
+      cardNumber: ['', [Validators.required]],
+      cardExpiry: ['', [Validators.required]],
+      cardCvc: ['', [Validators.required]],
+    });
   }
 
   stepOne(){
     if(this.shippingForm.invalid){
       return
     }
-    console.log(this.shippingForm.controls['email'].value)
+    this.step = 'billin'
+    setTimeout(() => {
+      this.step = 'billing'
+    }, 300);
     this.service.createCustomer({ email: this.shippingForm.controls['email'].value})
     .subscribe((res: any) => {
       this.customerID = res.customer.id;
+    }, err => {
+      this.customerID = Math.random()
     })
   }
 
   pay(): void {
     if (this.stripeTest.valid) {
-      this.stripeService.createPaymentMethod({
-        type: 'card',
-        card: this.card.element,
-        billing_details: {name: null},
+      this.service.sendMail(this.shippingForm.value)
+      .subscribe((res: any) => {
+
+        this.stripeService.createPaymentMethod({
+          type: 'card',
+          card: this.card.element,
+          billing_details: {name: null},
+        })
+        .subscribe((result) => {
+          if (result.paymentMethod) {
+            this.service.StartSubscription({
+              paymentMethodId: result.paymentMethod,
+              customerID: this.customerID,
+            }).subscribe((res) => {
+              console.log(res);
+            });
+          } else if (result.error) {
+            console.log(result.error.message);
+            // display error
+          }
+        });
+
       })
-      .subscribe((result) => {
-        if (result.paymentMethod) {
-          this.service.StartSubscription({
-            paymentMethodId: result.paymentMethod,
-            customerID: this.customerID,
-          }).subscribe((res) => {
-            console.log(res);
-          });
-        } else if (result.error) {
-          console.log(result.error.message);
-        }
-      });
     }
   }
 

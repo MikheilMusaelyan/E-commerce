@@ -16,5 +16,9 @@ export class MainService {
     return this.http.post('http://localhost:3000/create-subscription', data);
   }
 
+  sendMail(data: any) {
+    return this.http.post('http://localhost:3000/send-email', data);
+  }
+
   
 }

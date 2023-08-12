@@ -1,8 +1,3 @@
-<!-- <form #email="ngForm" (ngSubmit)="onClickSubmit(email.value)" class="center">
-    <input type="text" name="emailID" placeholder="email" ngModel>
-    <br />
-    <button type="submit">Create Customer</button>
-</form> -->
 
 <h4 *ngIf="customerID" class="center">{{customerID}}</h4>
 <h2 class="center">Start Subsciption</h2>
@@ -11,6 +6,7 @@
 
   <div class="formWrap">  
     <form 
+    [@formOne]="oneForm"
     [formGroup]="shippingForm"
     class="payment-form"
     *ngIf="step == 'shipping'"
@@ -434,18 +430,19 @@
       
       </div>
 
-      <button type="submit" class="pay-button" (click)="stepOne()">
+      <button type="button" class="pay-button" (click)="stepOne()">
         Next
       </button>
 
     </form>
 
     <form
+      [@formTwo]="twoForm"
       class="payment-form"
       ngxStripeCardGroup
       [formGroup]="stripeTest"
       [elementsOptions]="elementsOptions"
-      *ngIf="step != 'shipping'"
+      *ngIf="step == 'billing'"
     >
       <div class="wrap">
         <label class="form-label">Card Number</label>
@@ -477,7 +474,7 @@
         </div>
       </div>
 
-      <button type="submit" class="pay-button" (click)="pay()">
+      <button type="button" class="pay-button" (click)="pay()">
         Pay
       </button>
     </form> 
