@@ -1,22 +1,24 @@
 <main class="twelve">
     <section class="left">
         <div class="big-image-wrap">
-            <img
-            class="big-image"
-            (mousemove)="zoomIn($event)"
-            (mouseout)="zoomOut($event)"
-            [src]="hovered || selectedImage" alt="No image">
+            <div class="image-wrap">
+                <img
+                class="big-image"
+                (mousemove)="zoomIn($event)"
+                (mouseout)="zoomOut($event)"
+                [src]="hovered || selectedItem.image" alt="No image">
+            </div>
         </div>
         <div class="small-images">
             <div
-                [ngClass]="{'selected': selectedImage == image}"
+                [ngClass]="{'selected': selectedItem.id == item.id}"
                 class="small-image-wrap" 
-                *ngFor="let image of images" 
-                (click)="selectImage(image)"
-                (mouseover)="hoverOver(image)"
+                *ngFor="let item of items" 
+                (click)="selectImage(item)"
+                (mouseover)="hoverOver(item)"
                 (mouseout)="hoverOut()"
             >
-                <img [src]="image" alt="No image">
+                <img [src]="item.image" alt="No image">
             </div>
         </div>
     </section>
@@ -69,13 +71,13 @@
                 <div class="decrease amountC" (click)="increase(false)">
                     <span class="decrease-amount-span">-</span>
                 </div>
-                <span class="quantity">{{quantity}}</span>
+                <span class="quantity">{{this.selectedItem.quantity}}</span>
                 <div class="increase amountC" (click)="increase(true)">
                     <span class="increase-amount-span">+</span>
                 </div>
             </div>
         </div>
-        <button class="add-to-cart">
+        <button class="add-to-cart" (click)="addToCart()">
             ADD TO CART
             <fa-icon class="arrow-right-icon" [icon]="arrowRight"></fa-icon>
         </button>

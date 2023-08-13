@@ -33,6 +33,7 @@ main{
 
 /* small */
 .small-images{
+    min-height: 190px;
     padding: 30px 10px 10px 10px;
     display: flex;
     /* justify-content: center; */
@@ -41,7 +42,7 @@ main{
 
 .small-image-wrap{
     height: 130px;
-    margin: 0 5px 5px 5px;
+    margin: 0 5px;
     padding: 10px;
     cursor: pointer;
     border-radius: 3px;

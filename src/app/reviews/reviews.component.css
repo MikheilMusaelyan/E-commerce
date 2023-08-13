@@ -1,5 +1,5 @@
 main{
-    margin: 150px 0 50px 0;
+    margin: 100px 0 50px 0;
 }
 .reviews-top-main-wrap{
     display: flex;
@@ -10,8 +10,8 @@ main{
     align-items: center;
 }
 .r-box{
-    width: 75px;
-    height: 75px;
+    min-width: 75px;
+    min-height: 75px;
     border-radius: 3px;
     background: black;
     display: flex;
@@ -31,8 +31,10 @@ main{
 }
 
 
-
 /* stars */
+.stars-wrap{
+    min-width: 120px;
+}
 
 .r-stars-main{
     padding-top: 35px;    
@@ -181,6 +183,23 @@ main{
     }
     .r-right-main{
         padding-top: 35px;
+    }
+}
+@media screen and (max-width: 450px){
+    .review-line{
+        width: 100%;
+    }
+    .r-left-main{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 250px){
+    .review-line{
+        display: none;
+    }
+    .review-row{
+        justify-content: space-between;
     }
 }
 

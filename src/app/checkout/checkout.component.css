@@ -153,9 +153,6 @@
     .dataset.total span{
       font-size: 17px;
     }
-    .dataset-field{
-      
-    }
     .dataset-value{
       font-weight: 500;
       color: rgb(43, 43, 43);
@@ -167,7 +164,7 @@
     }
 
 
-
+    
 
     .left{
       width: 55%;
@@ -181,6 +178,7 @@
     .header{
       margin: 0;
       padding-bottom: 20px;
+      color: #007bff;
     }
     
     .payment-form {
@@ -308,12 +306,9 @@
     }
     .left, .right{
       width: 100%;
-      padding: 20px;
+      padding: 35px 20px 20px 20px;
       position: static;
       height: auto;
-    }
-    .left{
-      padding-top: 35px;
     }
     .left-wrap{
       width: 100%;

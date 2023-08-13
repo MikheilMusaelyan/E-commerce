@@ -1,6 +1,7 @@
 .small-images{
-    padding-top: 25px;
+    padding: 25px 0 10px 0;
     display: flex;
+    overflow: auto;
 }
 .small-image-wrap{
     margin: 0 10px 10px 10px;
@@ -21,3 +22,26 @@
     user-select: none;
     -webkit-user-select: none;
 }
+.similar-items{
+    margin-bottom: 0;
+}
+
+::-webkit-scrollbar {
+    height: 7px;
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 7px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(61, 61, 61);
+  }
+  

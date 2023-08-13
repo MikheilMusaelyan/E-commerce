@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { StripeService, StripeCardComponent, StripeCardNumberComponent } from 'ngx-stripe';
 import { StripeCardElementOptions, StripeElementsOptions } from '@stripe/stripe-js';
-import { MainService } from '../main.service';
+import { Item, MainService } from '../main.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
@@ -64,10 +64,12 @@ export class CheckoutComponent {
   // stripe form
   stripeTest: FormGroup;
 
+  // cartItems
+  cartItems: Item[] = this.service.cartItems;
+
   constructor(
     private stripeService: StripeService,
     private service: MainService,
-    private http: HttpClient,
     private fb: FormBuilder
   ) {
     this.stripeTest = this.fb.group({
