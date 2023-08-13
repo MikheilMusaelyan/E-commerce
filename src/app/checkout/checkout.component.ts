@@ -66,6 +66,7 @@ export class CheckoutComponent {
 
   // cartItems
   cartItems: Item[] = this.service.cartItems;
+  total: number = this.service.total
 
   constructor(
     private stripeService: StripeService,
@@ -77,6 +78,10 @@ export class CheckoutComponent {
       cardExpiry: ['', [Validators.required]],
       cardCvc: ['', [Validators.required]],
     });
+    
+    this.service.changedPrice.subscribe((data: number) => {
+      this.total = data
+    })
   }
 
   stepOne(){

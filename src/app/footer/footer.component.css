@@ -2,7 +2,6 @@ footer{
     display: flex;
     background: rgb(92, 225, 230);
     justify-content: center;
-    margin-top: 20px;
 }
 ul{
     width: 100%;
@@ -44,8 +43,5 @@ li{
     }
     .li-wrap:last-child{
         margin-bottom: 25px;
-    }
-    footer{
-        margin: 0;
     }
 }
