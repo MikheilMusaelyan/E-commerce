@@ -1,12 +1,13 @@
-<main>
-    <h1 class="similar-items">Similar Items</h1>
+<main *ngIf="items['length'] > 0">
+    <h1 class="similar-items">Other Products</h1>
     <div class="small-images">
-        <div
-            class="small-image-wrap" 
-            *ngFor="let image of images" 
-            (click)="goToItem(image)"
-        >
-            <img [src]="image" alt="No image">
+        <div *ngFor="let item of items">
+            <div
+                class="small-image-wrap" 
+                [routerLink]="['/item', item.id]"
+            >
+                <img [src]="item['selectedVariation']['variationImage']" alt="No image">
+            </div>
         </div>
     </div>
 </main>

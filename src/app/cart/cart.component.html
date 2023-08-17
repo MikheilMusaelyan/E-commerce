@@ -1,0 +1,46 @@
+<main>
+    <div class="your-cart-wrap">
+        <h1 class="your-cart">{{cartItems.length > 0 ? 'Your Cart' : 'You have no items in the cart'}}</h1>
+    </div>
+    <div class="item-wrap" *ngIf="cartItems.length > 0">
+        <div class="item" *ngFor="let item of cartItems">
+            <div class="item-img" (click)="reroute(item['id'])">
+              <img [src]="item['image']">
+            </div>
+          
+            <div class="text-wrap">
+                <div class="wrap-text-q">
+                    <div class="item-text">
+                        <span class="item-text-span item-name">{{item['name']}}</span>
+                        <span class="item-text-span item-custom custom-color" *ngIf="item['variationName']">{{item['variationName']}}: {{item['variationValue']}}</span>
+                        <span class="item-text-span item-custom custom-color">Type: {{item['vipOffer'] ? 'VIP Offer' : 'Non VIP Offer'}}</span>
+                        <span class="item-text-span item-custom custom-color" *ngIf="item['sizes']">Size: {{item['size']}}</span>
+                    </div>
+            
+                    <div class="quantity-wrap-main">
+                        <div class="quantity-wrap">
+                            <div class="decrease amountC">
+                                <span class="decrease-amount-span" (click)="increase(item, false)">-</span>
+                            </div>
+                            <span class="quantity">{{item['quantity']}}</span>
+                            <div class="increase amountC">
+                                <span class="increase-amount-span" (click)="increase(item, true)">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div div class="item-price">
+                    ${{item['price'].toFixed(2)}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="subtotal-wrap">
+        <div class="subtotal" *ngIf="cartItems.length > 0">
+            <span class="sub-text">Subtotal</span>
+            <span class="sub-value">${{total.toFixed(2)}}</span>
+        </div>
+        <button *ngIf="cartItems.length > 0" class="checkout" routerLink="/checkout">Checkout</button>
+    </div>
+</main>

@@ -64,7 +64,6 @@
       display: flex;
       align-items: center;
       padding: 22px 0 12px 0;
-      border-bottom: 1px solid rgb(230, 230, 230);
     }
     .item:first-child{
       padding-top: 0;
@@ -132,7 +131,7 @@
       color: rgb(37, 36, 36);
     }
     /* overall */
-
+  
     .overall-info{
       margin-top: 40px;
       padding: 10px 0 0 0;
@@ -179,6 +178,28 @@
       margin: 0;
       padding-bottom: 20px;
       color: #007bff;
+    }
+    .gohome{
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+      width: max-content;
+      margin-right: 8px;
+    }
+    .gohome.nav{
+      font-size: 13px;
+      text-decoration: none;
+      cursor: initial;
+      font-weight: normal;
+    }
+    .gohome fa-icon{
+      margin-left: 2px;
+      font-size: 9px;
+    }
+    .nav-wrap{
+      display: flex;
     }
     
     .payment-form {

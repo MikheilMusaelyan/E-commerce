@@ -5,6 +5,7 @@ import { Item, MainService } from '../main.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
+import { faArrowRight, faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-checkout',
@@ -26,6 +27,7 @@ import { HttpClient } from '@angular/common/http';
   ]
 })
 export class CheckoutComponent {
+  arrowRight = faArrowRightLong;
   shippingForm: FormGroup = new FormGroup({
     zipCode: new FormControl(null, [Validators.required, Validators.maxLength(20)]),
     email: new FormControl(null, [Validators.required, Validators.email, Validators.maxLength(50)]),
@@ -85,7 +87,7 @@ export class CheckoutComponent {
   }
 
   stepOne(){
-    if(this.shippingForm.invalid){
+    if(this.shippingForm.invalid || this.cartItems?.length == 0){
       return
     }
 
@@ -101,11 +103,13 @@ export class CheckoutComponent {
     this.step = 'billin'
     setTimeout(() => {
       this.step = 'billing'
-    }, 370);
+    }, 300);
   }
 
   pay(): void {
-    if (this.stripeTest.valid) {
+    if(this.stripeTest.invalid || this.cartItems?.length == 0){
+      return
+    }
       this.service.sendMail(this.shippingForm.value)
       .subscribe((res: any) => {
 
@@ -133,7 +137,6 @@ export class CheckoutComponent {
         });
 
       })
-    }
   }
 
 }

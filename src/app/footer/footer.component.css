@@ -1,6 +1,6 @@
 footer{
     display: flex;
-    background: rgb(92, 225, 230);
+    background: #007bff;
     justify-content: center;
 }
 ul{

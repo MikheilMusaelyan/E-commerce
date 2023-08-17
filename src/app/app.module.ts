@@ -17,6 +17,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReviewsComponent,
     FooterComponent,
     CheckoutComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

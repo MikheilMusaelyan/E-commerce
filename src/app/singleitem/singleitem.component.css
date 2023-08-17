@@ -34,7 +34,7 @@ main{
 /* small */
 .small-images{
     min-height: 190px;
-    padding: 30px 10px 10px 10px;
+    padding: 30px 10px 0px 10px;
     display: flex;
     /* justify-content: center; */
     overflow: auto;
@@ -133,14 +133,20 @@ h1, h5{
 .preference{
     padding: 10px 20px;
     border-radius: 8px;
-    background: var(--mainColor);
-    color: white;
-    border: none;
     margin: 0 10px 5px 0;
     cursor: pointer;
+    background: transparent;
+    border: 2px solid var(--mainColor);
+    color: var(--mainColor);
 }
 .preference:hover{
     background: rgb(37, 37, 37);
+    color: white;
+}
+.selected-button{
+    color: white;
+    background: var(--mainColor);
+    font-weight: 500;
 }
 
 /* .old-price::before{
@@ -214,13 +220,12 @@ h1, h5{
     background: rgb(245, 245, 245);
 }
 .vipoffer:hover{
-    background: rgb(67, 215, 221);
+    background: #0869d1;
 }
 .vipoffer{
     color: white;
-    background: rgb(92, 225, 230);
+    background: #007bff;
     border: 2px solid black;
-
 }
 .offer-text{
     padding: 10px 15px;
@@ -267,7 +272,7 @@ h1, h5{
 .add-to-cart{
     padding: 16px;
     border-radius: 8px;
-    background: rgb(92, 225, 230);
+    background: #007bff;
     color: white;
     border: none;
     margin: 25px 0;
@@ -275,7 +280,7 @@ h1, h5{
     cursor: pointer;
 }
 .add-to-cart:hover{
-    background: rgb(67, 215, 221);
+    background: #0869d1;
     box-shadow: 0 0 10px rgb(245, 245, 245);
 }
 .paragraph{
@@ -340,12 +345,12 @@ h1, h5{
 }
 
 ::-webkit-scrollbar-thumb {
-  background: black;
+  background: #007bff;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(61, 61, 61);
+  background: #036ddf;
 }
 
 @media screen and (max-width: 800px){

@@ -1,12 +1,24 @@
 main{
     /* padding: 0 45px; */
 }
+.f-t-wrap{
+    padding: 40px 40px 0 40px;
+}
+.featured{
+    font-size: 40px;
+    margin: 0;
+    background: linear-gradient(to right, #007bff, #125fb3);
+    width: max-content;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 ul{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 60px 30px;
     flex-wrap: wrap;
 }
 li{
@@ -15,7 +27,7 @@ li{
     overflow: hidden;
     border-radius: 2px;
     margin-bottom: 18px;
-    margin: 0 15px 15px 15px;
+    margin: 0 15px 45px 15px;
     min-width: 300px;
     width: 300px;
     box-shadow: 0 2px 7px rgb(230, 230, 230);
@@ -98,3 +110,9 @@ h3, h5{
     opacity: 1;
 }
 
+@media screen and (max-width: 550px) {
+    .f-t-wrap{
+        display: flex;
+        justify-content: center;
+    }
+}

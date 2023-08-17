@@ -1,46 +1,18 @@
 <main>
+    <app-banner></app-banner>
+    <div class="f-t-wrap">
+        <h1 class="featured">Featured Collection</h1>
+    </div>
     <ul>
-        <li>
+        <li *ngFor="let item of items" [routerLink]="['item', item['id']]">
             <section>
                 <div class="item-img-wrap">
-                    <img class="item-img" src="https://cdn.shopify.com/s/files/1/0070/1922/products/instock_m_q222_EasyShort-Charcoal_001_grande.jpg?v=1654543359" alt="">
+                    <img class="item-img" [src]="item['selectedVariation']['variationImage']"> 
                 </div>
                 <div class="bottom-wrap">
                     <div class="span-wrap">
-                        <span class="name">Grey Shorts</span>
-                        <span class="price">$64.99</span>
-                    </div>
-                    <div class="shopnow-wrap">
-                        <h5 class="shopnow">SHOP NOW</h5>
-                    </div>
-                </div>
-            </section>
-        </li>
-        <li>
-            <section>
-                <div class="item-img-wrap">
-                    <img class="item-img" src="https://cdn.discordapp.com/attachments/1008571121743962212/1117567493666513047/rustavi_2_beautiful_tall_white_skinny_22_year_old_girl_model_fa_596b25fc-4e23-478e-99f5-022c115753e6.png" alt="">
-                </div>
-                <div class="bottom-wrap">
-                    <div class="span-wrap">
-                        <span class="name">Grey Shorts</span>
-                        <span class="price">$64.99</span>
-                    </div>
-                    <div class="shopnow-wrap">
-                        <h5 class="shopnow">SHOP NOW</h5>
-                    </div>
-                </div>
-            </section>
-        </li>
-        <li>
-            <section>
-                <div class="item-img-wrap">
-                    <img class="item-img" src="https://www.freeiconspng.com/thumbs/model-png/fashion-model-png-3-6-36703-800w-1-1-5.png" alt="">
-                </div>
-                <div class="bottom-wrap">
-                    <div class="span-wrap">
-                        <span class="name">Grey Shorts</span>
-                        <span class="price">$64.99</span>
+                        <span class="name">{{item.name}}</span>
+                        <span class="price">${{item.price.toFixed(2)}}</span>
                     </div>
                     <div class="shopnow-wrap">
                         <h5 class="shopnow">SHOP NOW</h5>

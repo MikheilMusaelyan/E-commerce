@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { faArrowDown, faArrowRight, faTruckFront, faStar as star} from '@fortawesome/free-solid-svg-icons';
 import { faStar as lastStar, faArrowAltCircleDown} from '@fortawesome/free-regular-svg-icons';
-import { Item, MainService } from '../main.service';
+import { Item, MainService, Variation, cartItem } from '../main.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-singleitem',
@@ -10,7 +11,19 @@ import { Item, MainService } from '../main.service';
 })
 
 export class SingleitemComponent {
-  constructor(private service: MainService){}
+  constructor(
+    private service: MainService,
+    private router: Router,
+    private route: ActivatedRoute
+  ){
+    this.route.params.subscribe(params => {
+      for(let i of this.items){
+        if(params['id'] == i['id']){
+          this.selectedItem = i
+        }
+      }
+    })
+  }
 
   starIcon = star;
   lastStar = lastStar;
@@ -19,15 +32,27 @@ export class SingleitemComponent {
   
   // styles
   one: boolean = false;
-  two: boolean = false
-  hovered: string = ''
+  two: boolean = false;
+  hovered: string = '';
 
   // func
   items: Item[] = this.service.items
-  selectedItem: Item = this.items[0];
-  
-  selectImage(i: Item){
-    this.selectedItem = i
+  selectedItem: Item;
+  vipOffer: boolean = true;
+
+  ngAfterViewInit(){
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto'
+    })
+  }
+
+  changeOffer(bool: boolean){
+    this.vipOffer = bool;
+  }
+
+  selectVariation(i: Variation){
+    this.selectedItem['selectedVariation'] = i
   }
 
   increase(bool:boolean){
@@ -39,13 +64,33 @@ export class SingleitemComponent {
   }
 
   addToCart(){
-    this.service.addItem({...this.selectedItem})
-    this.selectedItem.quantity = 1
+    let item: cartItem = {
+      name: this.selectedItem['name'],
+      quantity: this.selectedItem['quantity'],
+      price: this.selectedItem['vipOfferPrice'],
+      image: this.selectedItem['selectedVariation']['variationImage'],
+      variationName: this.selectedItem['selectedVariation']['variationName'],
+      variationValue: this.selectedItem['selectedVariation']['variationValue'],
+      id: this.selectedItem['selectedVariation']['id'],
+      size: this.selectedItem['selectedSize'],
+      vipOffer: true
+    }
+    if(this.vipOffer){
+      this.service.addItem(item)
+    } else {
+      this.service.addItem({
+        ...item,
+        vipOffer: false,
+        price: this.selectedItem['price']
+      })
+    }
+    this.selectedItem.quantity = 1;
+    this.router.navigate(['/checkout'])
   }
 
   // styles
   hoverOver(i: any){
-    this.hovered = i.image
+    this.hovered = i['variationImage']
   }
 
   hoverOut(){
