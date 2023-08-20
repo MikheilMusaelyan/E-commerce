@@ -1,9 +1,0 @@
-main{
-    padding: 35px;
-} 
-
-@media screen and (max-width: 850px){
-    main{
-        padding: 20px;
-    }
-}

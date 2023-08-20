@@ -5,7 +5,8 @@ import { Item, MainService } from '../main.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
-import { faArrowRight, faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faArrowRightLong, faCheck, faX, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -23,6 +24,12 @@ import { faArrowRight, faArrowRightLong } from '@fortawesome/free-solid-svg-icon
         'opacity': '0'
       })),
       transition('* => *', animate('0.4s ease-in-out'))
+    ]),
+    trigger('3', [
+      state('void', style({
+        'opacity': '0'
+      })),
+      transition('* => *', animate('0.3s ease-in-out'))
     ])
   ]
 })
@@ -39,6 +46,12 @@ export class CheckoutComponent {
   })
   customerID: any;
   step: string = 'shipping';
+
+  // payment
+  paymentState: string = 'neutral'
+  paymentIcon = faCheck;
+  paymentForm: string;
+  paymentLoading: boolean = false;
 
   // forms
   form1: string;
@@ -73,7 +86,8 @@ export class CheckoutComponent {
   constructor(
     private stripeService: StripeService,
     private service: MainService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.stripeTest = this.fb.group({
       cardNumber: ['', [Validators.required]],
@@ -96,7 +110,7 @@ export class CheckoutComponent {
     .subscribe((res: any) => {
       this.customerID = res.customer.id;
     }, err => {
-      this.customerID = Math.random()
+      this.customerID = 'randomCustomerId@bigboyzz.com'
     })
 
     // open up the card card
@@ -107,36 +121,51 @@ export class CheckoutComponent {
   }
 
   pay(): void {
-    if(this.stripeTest.invalid || this.cartItems?.length == 0){
+    if(this.cartItems?.length == 0 || this.paymentLoading){
       return
     }
-      this.service.sendMail(this.shippingForm.value)
-      .subscribe((res: any) => {
-
-        this.stripeService.createPaymentMethod({
-          type: 'card',
-          card: this.card.element,
-          billing_details: {name: null},
-        })
-        .subscribe((result) => {
-          if (result.paymentMethod) {
-
-            this.service.StartSubscription({
-              paymentMethodId: result.paymentMethod,
-              customerID: this.customerID,
-            }).subscribe((res) => {
-              console.log(res);
-            }, err => {
-              // no subscription
-            });
-
-          } else if (result.error) {
-            console.log(result.error.message);
-            // display error
-          }
+    this.paymentLoading = true;
+    this.stripeService.createPaymentMethod({
+      type: 'card',
+      card: this.card.element,
+      billing_details: {name: null},
+    })
+    .subscribe((result) => {
+      if (result.paymentMethod) {
+        this.service.StartSubscription({
+          paymentMethodId: result.paymentMethod,
+          customerID: this.customerID || 'randomCustomerId@bigboyzz.com',
+          shippingForm: this.shippingForm.value
+        }).subscribe((res) => {
+          this.changePaymentState('success', 2000);
+        }, err => {
+          this.changePaymentState('error', 2000)
         });
+        return
+      }
+      this.changePaymentState('error', 2000)
+    }, err => {
+      this.changePaymentState('error', 2000)
+    });
+  }
 
-      })
+  changePaymentState(string: string, timeout: number){
+    this.paymentLoading = false
+    if(string == 'error'){
+      this.paymentIcon = faXmark;
+    } else{
+      this.paymentIcon = faCheck;
+      this.service.resetCart();
+      setTimeout(() => {
+        this.router.navigate([''])
+      }, timeout);
+    }
+    this.paymentState = string;
+    if(timeout > 0){
+      setTimeout(() => {
+        this.paymentState = 'neutral';
+      }, timeout);
+    }
   }
 
 }

@@ -5,6 +5,7 @@ main{
     align-items: center;
     min-height: 50vh;
 }
+
 .your-cart-wrap{
     width: 100%;
     max-width: 1200px;
@@ -33,6 +34,7 @@ main{
     min-height: 110px;
     width: 110px;
     height: 110px;
+    overflow: hidden;
     
     justify-content: center;
     background: white;
@@ -149,6 +151,9 @@ button:hover{
     padding-right: 12px;
 }
 @media screen and (max-width: 750px){
+  .checkout{
+    margin: 25px auto 0 auto;
+  }
   main{
     padding: 40px 15px 60px 15px;
   }

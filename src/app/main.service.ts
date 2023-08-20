@@ -68,7 +68,15 @@ export class MainService {
         [
           {
             name: 'Sato Kinkidze',
-            review: 'This is the best review ever2',
+            review: `This is the best review ever2 \n\n 
+            This is the best review ever2 This is the best review ever2 This is the best review ever2`,
+            stars: 4,
+            date: '06/01/2024' 
+          },
+          {
+            name: 'Sato Kinkidze',
+            review: `This is the best review ever2 \n\n 
+            This is the best review ever2 This is the best review ever2 This is the best review ever2`,
             stars: 4,
             date: '06/01/2024' 
           },
@@ -78,7 +86,27 @@ export class MainService {
             stars: 5,
             date: '02/02/2024' 
           },
-        ]
+        ],
+        [
+          {
+            name: 'Dato Kinkidze',
+            review: 'This is the best review ever1',
+            stars: 5,
+            date: '02/07/2023' 
+          },
+          {
+            name: 'Tato Kinkidze',
+            review: 'This is the best review ever2',
+            stars: 4,
+            date: '06/11/2023' 
+          },
+          {
+            name: 'Bato Kinkidze',
+            review: 'This is the best review ever1',
+            stars: 5,
+            date: '02/02/2024' 
+          },
+        ],
       ],
       reviewCount: 12,
       description: 
@@ -116,6 +144,11 @@ export class MainService {
   cartItems: cartItem[] = [];
   total: number = 0;
   changedPrice: Subject<number> = new Subject()
+
+  resetCart(){
+    this.total = 0;
+    this.cartItems = []
+  }
 
   addItem(item: cartItem){
     let found: boolean = false;
@@ -175,7 +208,15 @@ export class MainService {
   }
 
   StartSubscription(data: any) {
-    return this.http.post('http://localhost:3000/create-subscription', data);
+    const object = {
+      ...data,
+      // paymentMethodId: result.paymentMethod,
+      // customerID: this.customerID,
+      // shippingForm: this.shippingForm.value
+      total: this.total,
+      cartItems: this.cartItems
+    }
+    return this.http.post('http://localhost:3000/create-subscription', object);
   }
 
   sendMail(data: any) {

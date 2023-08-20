@@ -12,9 +12,9 @@
                 <div class="wrap-text-q">
                     <div class="item-text">
                         <span class="item-text-span item-name">{{item['name']}}</span>
+                        <span class="item-text-span item-custom custom-color">Size: {{item['size']}}</span>
                         <span class="item-text-span item-custom custom-color" *ngIf="item['variationName']">{{item['variationName']}}: {{item['variationValue']}}</span>
-                        <span class="item-text-span item-custom custom-color">Type: {{item['vipOffer'] ? 'VIP Offer' : 'Non VIP Offer'}}</span>
-                        <span class="item-text-span item-custom custom-color" *ngIf="item['sizes']">Size: {{item['size']}}</span>
+                        <span class="item-text-span item-custom custom-color" *ngIf="item['vipOffer'] == true">Type: VIP Offer</span>
                     </div>
             
                     <div class="quantity-wrap-main">

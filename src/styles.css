@@ -13,3 +13,22 @@ body{
     max-width: 1100px;
     margin: auto;
 }
+
+button, div, input, select {
+    touch-action: manipulation; /* Prevents double-tap zoom */
+}
+
+@media screen and (max-width: 500px){
+    .amountC:hover{
+        background: transparent !important
+    }
+    .offer-button:hover{
+        background: white;
+    }
+    button.add-to-cart:hover,
+    .vipoffer:hover,
+    button.pay-button:hover,
+    button.checkout:hover{
+        background: #007bff !important;
+    }
+}

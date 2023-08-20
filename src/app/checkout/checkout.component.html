@@ -1,4 +1,15 @@
 <main> 
+  <div class="result-main" *ngIf="paymentState != 'neutral'" [@3]="paymentForm">
+    <div class="result">
+        <div class="result-icon-wrap" [ngClass]="{'result-icon-wrap-error' : paymentState == 'error'}">
+          <fa-icon class="result-icon" [icon]="paymentIcon"></fa-icon>
+        </div>
+        <div class="result-text-wrap">
+          <h2 class="result-text" *ngIf="paymentState == 'success'">Payment success!</h2>
+          <h2 class="result-text" *ngIf="paymentState == 'error'">Payment failed, confirm card information & balance.</h2>
+        </div>
+    </div>
+  </div>
 
   <div class="left">
     <div class="left-wrap">
@@ -459,7 +470,6 @@
           <img
             class="visa-img"
             src="https://www.aisc.org/globalassets/visa-mastercard-american-express-discover-logo-12000-25968.png"
-            alt=""
           />
         </div>
       </div>
@@ -483,7 +493,8 @@
       </div>
 
       <button type="button" class="pay-button" (click)="pay()">
-        Pay
+          <app-loading *ngIf="paymentLoading"></app-loading>
+          <span *ngIf="!paymentLoading">Pay</span>
       </button>
         </form> 
       </div>
@@ -494,7 +505,7 @@
   <div class="right">
     <div class="right-wrap">
       <h3 *ngIf="cartItems?.length == 0" style="color: #007bff;">You have no items in the cart</h3>
-      <p class="gohome" routerLink="" style="margin-bottom: 40px;">home</p>
+      <p class="gohome" routerLink="" style="margin-bottom: 20px;">home</p>
       <div class="item-wrap">
         <div class="item" *ngFor="let item of cartItems">
 
@@ -506,8 +517,9 @@
           <div class="text-wrap">
             <div class="item-text">
               <span class="item-text-span item-name">{{item['name']}}</span>
-              <span class="item-text-span item-custom custom-color">Color: Brown</span>
-
+              <span class="item-text-span item-custom custom-color">Size: {{item['size']}}</span>
+              <span class="item-text-span item-custom custom-color" *ngIf="item['variationName']">{{item['variationName']}}: {{item['variationValue']}}</span>
+              <span class="item-text-span item-custom custom-color" *ngIf="item['vipOffer'] == true">Type: VIP Offer</span>
             </div>
           
             <div class="item-price">

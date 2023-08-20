@@ -1,5 +1,6 @@
 main{
-    margin: 100px 0 50px 0;
+    margin: 30px 0;
+    padding: 15px;
 }
 .reviews-top-main-wrap{
     display: flex;
@@ -77,9 +78,6 @@ main{
     color: #edecec;
 }
 
-.r-right-main{
-
-}
 .write-r{
     border-radius: 5px;
     background: black;
@@ -96,8 +94,8 @@ main{
 .grid-main{
     display: flex;
     overflow: auto;
-    gap: 10px;
-    padding: 70px 15px 15px 15px;
+    gap: 20px;
+    padding: 70px 15px 0 15px;
 }
 .card{
     position: relative;
@@ -208,7 +206,7 @@ main{
     }
 }
 
-::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     height: 7px;
     border-radius: 5px;
   }

@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './cart/cart.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { CartComponent } from './cart/cart.component';
     FooterComponent,
     CheckoutComponent,
     CartComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

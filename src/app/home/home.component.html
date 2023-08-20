@@ -7,7 +7,7 @@
         <li *ngFor="let item of items" [routerLink]="['item', item['id']]">
             <section>
                 <div class="item-img-wrap">
-                    <img class="item-img" [src]="item['selectedVariation']['variationImage']"> 
+                    <img class="item-img" [src]="item['variations'][0]['variationImage']"> 
                 </div>
                 <div class="bottom-wrap">
                     <div class="span-wrap">

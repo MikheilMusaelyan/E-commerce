@@ -1,5 +1,5 @@
 nav {
-    padding: 10px;
+    padding: 10px 15px;
     display: flex;
     box-shadow: 0 4px 10px rgb(243, 243, 243);
 }
@@ -15,7 +15,7 @@ nav {
 
 li {
     cursor: pointer;
-    padding: 0 20px;
+    padding: 0 10px;
     display: flex;
     align-items: center;
     border-radius: 4px;
@@ -37,10 +37,11 @@ a {
 
 
 .logo{
-    max-width: 50px;
+    /* max-width: 25px; */
+    padding: 0 10px;
 }
 .logoimg{
-    max-width: 50px;
+    max-width: 25px;
 }
 
 .free-shipping{
